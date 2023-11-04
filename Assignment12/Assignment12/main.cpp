@@ -10,7 +10,8 @@
 #include <iostream>
 #include <iomanip>
 #include "input.h"
-#include "MyBagTemplate.h"
+#include "DynamicArray.h"
+#include "DynamicArray.cpp"
 #include <random>
 #include <string>
 
@@ -56,7 +57,7 @@ int main()
 //Postcondition: Display Option 1
 void option1()
 {
-    MyBagTemplate<string> dynamic_array;
+    DynamicArray<string> dynamic_array;
     
     int size = 0;
     int number = 0;
@@ -141,22 +142,21 @@ void option1()
                 break;
             }
 
-            int count = 0;
+            int index = 0;
 
             cout << "\n\t\tSTL serial search";
             cout << "\n\t\t" + string(50, char(196));
 
             string search = inputString("\n\t\tEnter a string element to search: ", false);
 
-            if (dynamic_array.search(search, count))
+            if (dynamic_array.serial_search(search, index))
             {
-                cout << "\n\t\t" << search << " is found at index " + to_string(count) + " in the unsorted array.\n";
-                break;
+                cout << "\n\t\t\"" << search << "\" is found at index " + to_string(index) + " in the unsorted array.\n";
+                return;
             }
             else
             {
                 cout << "\n\t\t\"" << search << "\" is not found in the unsorted array.\n";
-                break;
             }
         }
             break;
@@ -175,9 +175,11 @@ void option1()
     } while (true);
 }
 
+//Precondition: NA
+//Postcondition: Display Option 2
 void option2()
 {
-    MyBagTemplate<string> dynamic_array;
+    DynamicArray<string> dynamic_array;
 
     int size = 0;
     int number = 0;
@@ -266,41 +268,55 @@ void option2()
                 break;
             }
 
-            int count = 0;
+            int index = 0;
 
             char input = toupper(inputChar("\n\t\tChoose search type (S)Serial or (B)Binary: ", 'S', 'B'));
             switch (input)
             {
-                case 'S':
+            case 'S':
+            {
+                cout << "\n\t\tSTL serial search";
+                cout << "\n\t\t" + string(50, char(196));
+
+                string search = inputString("\n\t\tEnter a string element to search: ", false);
+
+                if (dynamic_array.serial_search(search, index))
                 {
-                    cout << "\n\t\tSTL serial search";
-                    cout << "\n\t\t" + string(50, char(196));
-
-                    string search = inputString("\n\t\tEnter a string element to search: ", false);
-
-                    if (dynamic_array.search(search, count))
-                    {
-                        cout << "\n\t\t" << search << " is found at index " + to_string(count) + " in the sorted array.\n";
-                        break;
-                    }
-                    else
-                    {
-                        cout << "\n\t\t\"" << search << "\" is not found in the sorted array.\n";
-                        break;
-                    }
-
+                    cout << "\n\t\t\"" << search << "\" is found at index " + to_string(index) + " in the sorted array.\n";
+                    break;
                 }
-                break;
-
-                case 'B':
+                else
                 {
-                    cout << "\n\t\tSTL binary search";
-                    cout << "\n\t\t" + string(50, char(196));
-
-                    string search = inputString("\n\t\tEnter a string element to search: ", false);
-
+                    cout << "\n\t\t\"" << search << "\" is not found in the sorted array.\n";
+                    break;
                 }
-                break;
+
+            }
+            break;
+
+            case 'B':
+            {
+                int first = 0;
+                int last = dynamic_array.getSize() - 1;
+
+                cout << "\n\t\tSTL binary search";
+                cout << "\n\t\t" + string(50, char(196));
+
+                string search = inputString("\n\t\tEnter a string element to search: ", false);
+
+                if (dynamic_array.binary_search(search, first, last, index))
+                {
+                    cout << "\n\t\t\"" << search << "\" is found at index " + to_string(index) + " in the sorted array.\n";
+                    break;
+                }
+                else
+                {
+                    cout << "\n\t\t\"" << search << "\" is not found in the sorted array.\n";
+                    break;
+                }
+
+            }
+            break;
             }
         }
         break;

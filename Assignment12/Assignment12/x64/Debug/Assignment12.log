@@ -1,5 +1,5 @@
 ﻿  main.cpp
-C:\Users\thanh\OneDrive - Rancho Santiago Community College District\Desktop\CMPR131\Assignment12\Assignment12\main.cpp(64,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\thanh\OneDrive - Rancho Santiago Community College District\Desktop\CMPR131\Assignment12\Assignment12\main.cpp(185,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\thanh\OneDrive - Rancho Santiago Community College District\Desktop\CMPR131\Assignment12\Assignment12\MyBagTemplate.h(87): warning C4715: 'MyBagTemplate<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::search': not all control paths return a value
-  Assignment12.vcxproj -> C:\Users\thanh\OneDrive - Rancho Santiago Community College District\Desktop\CMPR131\Assignment12\x64\Debug\Assignment12.exe
+F:\CMPR131\Assignment12\Assignment12\main.cpp(65,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+F:\CMPR131\Assignment12\Assignment12\main.cpp(187,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+F:\CMPR131\Assignment12\Assignment12\DynamicArray.cpp(97): warning C4715: 'DynamicArray<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::serial_search': not all control paths return a value
+  Assignment12.vcxproj -> F:\CMPR131\Assignment12\x64\Debug\Assignment12.exe
